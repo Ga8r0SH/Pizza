@@ -1,11 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import CartPage from './pages/CartPage';
+import MainPage from './pages/MainPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      Hello
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/mainContent' element={<CartPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
