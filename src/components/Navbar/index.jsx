@@ -1,21 +1,51 @@
+import { useEffect, useState } from 'react'
 import './Navbar.css'
 const Navbar = () => {
+    const [popUp, setPopUp] = useState(false);
+    const [filter, setFilter] = useState('популярности');
+
+
+    const sorting = (value) => {
+        setFilter(value);
+
+    }
+
+
+    const toglePopUp = () => {
+        setPopUp(!popUp);
+    }
+
+    useEffect(() => {
+        const closePopap = (event) => {
+            if (popUp && !event.target.closest('.sort')) {
+                setPopUp(false)
+            }
+        }
+        if (popUp) {
+            document.addEventListener('click', closePopap);
+        }
+        return () => {
+            document.removeEventListener('click', closePopap);
+        }
+    }, [popUp])
+
 
     return (
-        <div classNameName='container'>
-            <div className="content__top">
-                <div className="categories">
-                    <ul>
-                        <li className="active">Все</li>
-                        <li>Мясные</li>
-                        <li>Вегетарианская</li>
-                        <li>Гриль</li>
-                        <li>Острые</li>
-                        <li>Закрытые</li>
-                    </ul>
-                </div>
-                <div className="sort">
-                    <div className="sort__label">
+
+        <div className="content__top">
+            <div className="categories">
+                <ul>
+                    <li><button>Все</button></li>
+                    <li><button>Мясные</button></li>
+                    <li><button>Вегетарианская</button></li>
+                    <li><button>Гриль</button></li>
+                    <li><button>Острые</button></li>
+                    <li><button>Закрытые</button></li>
+                </ul>
+            </div>
+            <div className="sort">
+                <div className="sort__label">
+                    <button className='popUpButton' onClick={toglePopUp}>
                         <svg
                             width="10"
                             height="6"
@@ -28,17 +58,20 @@ const Navbar = () => {
                                 fill="#2C2C2C"
                             />
                         </svg>
-                        <b>Сортировка по:</b>
-                        <span>популярности</span>
-                    </div>
+                    </button>
+                    <b>Сортировка по:</b>
+                    <span>{filter}</span>
+                </div>
+                {popUp ? (
                     <div className="sort__popup">
                         <ul>
-                            <li className="active">популярности</li>
-                            <li>цене</li>
-                            <li>алфавиту</li>
+                            <li onClick={() => sorting("популярности")}>популярности</li>
+                            <li onClick={() => sorting('цене')} >цене</li>
+                            <li onClick={() => sorting('алфавиту')}>алфавиту</li>
                         </ul>
                     </div>
-                </div>
+                ): null}
+
             </div>
         </div>
     )

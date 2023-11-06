@@ -11,9 +11,6 @@ const MainPage = () => {
                     <Navbar />
                     <div className="mainContentContainer">
                         <MainContent />
-                        <MainContent />
-                        <MainContent />
-                        <MainContent />
                     </div>
                 </div>
             </div>

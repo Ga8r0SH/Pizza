@@ -11,6 +11,11 @@
 .pizza-block__image {
     width: 260px
 }
+.button--add {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
 
 .pizza-block__title {
     font-size: 20px;

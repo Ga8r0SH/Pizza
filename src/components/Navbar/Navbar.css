@@ -1,4 +1,7 @@
-
+.popUpButton{
+    background-color:transparent;
+    border: none;
+}
 .button--black {
     background-color: #232323
 }
@@ -118,6 +121,10 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none
+}
+.categories ul li button{
+    background-color:transparent;
+    border:none;
 }
 
 .categories ul li:hover {
