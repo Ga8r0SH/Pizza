@@ -1,44 +1,60 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import './MainContent.css'
 import Preloader from '../Preloader';
 
-const MainContent = () => {
+const MainContent = ({ sorting, rating }) => {
     const [data, setData] = useState([]);
-    const [loading , setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
+    const [filterItem, setfilterItem] = useState([]);
 
+ 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await axios.get('https://62ceb481826a88972d01421d.mockapi.io/items');
-                setData(response.data.items);
-                setLoading(false)
-
-            } catch (error) {
-                console.error('Произошла ошибка при выполнении запроса:', error);
-            }
+          try {
+            const response = await axios.get('https://62ceb481826a88972d01421d.mockapi.io/items');
+            setData(response.data.items);
+            setLoading(false);
+          } catch (error) {
+            console.error('Произошла ошибка при выполнении запроса:', error);
+          }
         };
-
+      
         fetchData();
-    }, []);
+      
+        if (!loading) {
+          const filteredData = sorting === 0 ? data : data.filter(item => item.category === sorting);
+          const sortedData = [...filteredData];
+      
+          if (rating === 'популярности') {
+            sortedData.sort((a, b) => a.rating - b.rating);
+          } else if (rating === 'цена') {
+            sortedData.sort((a, b) => a.price - b.price);
+          } else if (rating === 'алфавиту') {
+            sortedData.sort((a, b) => a.title.localeCompare(b.title));
+          }
+      
+          setfilterItem(sortedData);
+        }
+      }, [data, sorting, rating, loading]);
+
 
     return (
         <>
             {
-                loading ? <Preloader/> : data.map((item, index) => (
-                    <div className="pizza-block">
-                        <div key={index} className="pizza-block__item">
-                            <img className="pizza-block__image"
-                                src={item.imageUrl}
-                                alt='' />
+                loading ? <Preloader /> : filterItem.map((item, index) => (
+                    <div className="pizza-block" key={index}>
+                        <div className="pizza-block__item">
+                            <img className="pizza-block__image" src={item.imageUrl} alt="" />
                             <h4 className="pizza-block__title">{item.title}</h4>
                             <div className="pizza-block__selector">
                                 <ul>
                                     <li className="active">
-                                        { }
+                                        {"Традиционное"}
                                     </li>
                                     <li>
-                                        { }
+                                        {"Тонкое"}
                                     </li>
                                 </ul>
                                 <ul>

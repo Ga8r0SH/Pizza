@@ -1,14 +1,21 @@
+/* eslint-disable no-template-curly-in-string */
 import { useEffect, useState } from 'react'
 import './Navbar.css'
-const Navbar = () => {
+const Navbar = ({ navBarSort , navBarSortByRating}) => {
     const [popUp, setPopUp] = useState(false);
     const [filter, setFilter] = useState('популярности');
 
 
     const sorting = (value) => {
         setFilter(value);
-
+        navBarSortByRating(value);
     }
+
+    
+    const sortByCategory = (value) => {
+        navBarSort(value);
+    }
+
 
 
     const toglePopUp = () => {
@@ -35,17 +42,17 @@ const Navbar = () => {
         <div className="content__top">
             <div className="categories">
                 <ul>
-                    <li><button>Все</button></li>
-                    <li><button>Мясные</button></li>
-                    <li><button>Вегетарианская</button></li>
-                    <li><button>Гриль</button></li>
-                    <li><button>Острые</button></li>
-                    <li><button>Закрытые</button></li>
+                    <li onClick={() => sortByCategory(0)}><button>Все</button></li>
+                    <li onClick={() => sortByCategory(1)}><button>Мясные</button></li>
+                    <li onClick={() => sortByCategory(2)}><button>Вегетарианская</button></li>
+                    <li onClick={() => sortByCategory(3)}><button>Гриль</button></li>
+                    <li onClick={() => sortByCategory(4)}><button>Острые</button></li>
+                    <li onClick={() => sortByCategory(5)}><button>Закрытые</button></li>
                 </ul>
             </div>
             <div className="sort">
-                <div className="sort__label">
-                    <button className='popUpButton' onClick={toglePopUp}>
+                <div className="sort__label" onClick={toglePopUp}>
+                    <button className='popUpButton' >
                         <svg
                             width="10"
                             height="6"
@@ -65,12 +72,12 @@ const Navbar = () => {
                 {popUp ? (
                     <div className="sort__popup">
                         <ul>
-                            <li onClick={() => sorting("популярности")}>популярности</li>
-                            <li onClick={() => sorting('цене')} >цене</li>
+                            <li onClick={() => sorting('популярности')}>популярности</li>
+                            <li onClick={() => sorting('цена')} >цене</li>
                             <li onClick={() => sorting('алфавиту')}>алфавиту</li>
                         </ul>
                     </div>
-                ): null}
+                ) : null}
 
             </div>
         </div>
