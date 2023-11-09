@@ -8,6 +8,7 @@ const Cart = () => {
     const { cart, clearCart, calculateTotalPrice, totalProduct } = useCart([]);
     return (
         <>
+        
             <Header totalPrice={calculateTotalPrice()} totalProduct={totalProduct} />
             <div className="content">
                 <div className="container container--cart">
