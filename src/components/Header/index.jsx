@@ -1,6 +1,15 @@
+import { useEffect, useState } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-const Header = () => {
+const Header = ({ totalPrice, totalProduct }) => {
+
+    const [Price, setTotalPrice] = useState(totalPrice);
+    const [Product, settotalProduct] = useState(totalProduct)
+
+    useEffect(() => {
+        setTotalPrice(totalPrice);
+        settotalProduct(totalProduct);
+    }, [totalPrice, totalProduct])
 
     return (
         <>
@@ -17,7 +26,7 @@ const Header = () => {
                     </div>
                     <div className="header__cart">
                         <Link to="/mainContent" className="button button--cart">
-                            <span>520 ₽</span>
+                            <span>{Price}$</span>
                             <div className="button__delimiter"></div>
                             <svg
                                 width="18"
@@ -48,7 +57,7 @@ const Header = () => {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                            <span>3</span>
+                            <span>{Product}</span>
                         </Link>
                     </div>
                 </div>
