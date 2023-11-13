@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    const { cart, clearCart, calculateTotalPrice, totalProduct } = useCart([]);
+    const { cart, clearCart, calculateTotalPrice, totalProduct ,removeProduct} = useCart([]);
+    const handleRemove = (item) => {
+        removeProduct(item);
+      };
     return (
         <>
         
@@ -55,7 +58,7 @@ const Cart = () => {
                                         <h3>{item.title}</h3>
                                         <p>Размер {item.sizes[0] + "см"}</p>
                                     </div>
-                                    <div className="cart__item-count">
+                                    {/* <div className="cart__item-count">
                                         <div className="button button--outline button--circle cart__item-count-minus">
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -77,11 +80,11 @@ const Cart = () => {
                                                     fill="#EB5A1E" />
                                             </svg>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="cart__item-price">
                                         <b>{item.price}$</b>
                                     </div>
-                                    <div className="cart__item-remove">
+                                    <div className="cart__item-remove" onClick={()=>handleRemove(item.id)}>
                                         <div className="button button--outline button--circle">
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
