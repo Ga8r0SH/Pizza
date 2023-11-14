@@ -1,3 +1,15 @@
+@media(max-width:700px){
+    .title{
+        display: none;
+    }
+    .name{
+        display: block !important ;
+    }
+}
+
+.name{
+    display: none;
+}
 .header {
     border-bottom: 1px solid #f6f6f6;
     padding: 40px 0;
@@ -18,7 +30,9 @@
 .header__logo {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex
+    display: flex;
+    align-items:center
+
 }
 
 .header__logo img {

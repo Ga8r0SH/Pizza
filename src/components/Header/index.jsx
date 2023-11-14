@@ -19,7 +19,8 @@ const Header = ({ totalPrice, totalProduct }) => {
                         <Link to='/' className="header__logo">
                             <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
                         </Link>
-                        <div>
+                        <h3 className='name'>PizzA</h3>
+                        <div className='title'>
                             <h1>React Pizza</h1>
                             <p>самая вкусная пицца во вселенной</p>
                         </div>

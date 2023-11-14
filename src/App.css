@@ -79,6 +79,11 @@ a {
     text-decoration: none
 }
 
+@media (max-width:700px) {
+    .mainContentContainer{
+        justify-content: center !important;
+    }
+}
 .mainContentContainer {
     display: -webkit-box;
     display: -ms-flexbox;
