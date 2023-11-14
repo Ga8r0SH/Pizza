@@ -18,17 +18,36 @@
         margin: 5px !important;
        
     }
-    
-}
-
-@media (max-width:1024px){
-    .burgerIcon{
-        display: block !important;
-    }
     .sort{
         display: none;
     }
+    .burgerIcon{
+        display: block !important;
+        position: static;
+    }
+    .sort__label{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .content__top{
+        display:block !important;
+    }
+   
+    
 }
+.content__top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
 
 .active{
     display: block;
@@ -41,12 +60,6 @@
     display: none;
 }
 
-/* .visible{
-    display: block;
-}
-.hidden{
-    display: none;
-} */
 b{cursor: pointer;}
 .popUpButton{
     background-color:transparent;
