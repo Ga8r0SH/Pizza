@@ -102,7 +102,7 @@ const Cart = () => {
                         <div className="cart__bottom">
                             <div className="cart__bottom-details">
                                 <span className='firstSpan'> Всего пицц: <b>{cart.length + 'шт'}</b> </span>
-                                <span> Сумма заказа: <b>{calculateTotalPrice()}</b> </span>
+                                <span> Сумма заказа: <b>{calculateTotalPrice()}$</b> </span>
                             </div>
                             <div className="cart__bottom-buttons">
                                 <Link to="/" className="button button--outline button--add go-back-btn">

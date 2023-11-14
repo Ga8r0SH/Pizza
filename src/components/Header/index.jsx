@@ -21,8 +21,8 @@ const Header = ({ totalPrice, totalProduct }) => {
                         </Link>
                         <h3 className='name'>PizzA</h3>
                         <div className='title'>
-                            <h1>React Pizza</h1>
-                            <p>самая вкусная пицца во вселенной</p>
+                            <h1>Store Pizza</h1>
+                            <p className='animated-text'>самая вкусная пицца во вселенной</p>
                         </div>
                     </div>
                     <div className="header__cart">
