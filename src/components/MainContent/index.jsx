@@ -42,7 +42,7 @@ const MainContent = ({ sorting, rating }) => {
 
       setfilterItem(sortedData);
     }
-  }, [data, sorting, rating, loading]);
+  }, [loading, sorting, rating]);
 
 
 
