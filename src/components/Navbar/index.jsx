@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import { useEffect, useState } from 'react'
 import './Navbar.css'
-const Navbar = ({ navBarSort , navBarSortByRating}) => {
+const Navbar = ({ navBarSort, navBarSortByRating }) => {
     const [popUp, setPopUp] = useState(false);
     const [filter, setFilter] = useState('популярности');
 
@@ -11,7 +11,7 @@ const Navbar = ({ navBarSort , navBarSortByRating}) => {
         navBarSortByRating(value);
     }
 
-    
+
     const sortByCategory = (value) => {
         navBarSort(value);
     }
@@ -40,6 +40,11 @@ const Navbar = ({ navBarSort , navBarSortByRating}) => {
     return (
 
         <div className="content__top">
+            <div class="burger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
             <div className="categories">
                 <ul>
                     <li onClick={() => sortByCategory(0)}><button>Все</button></li>

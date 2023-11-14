@@ -11,7 +11,7 @@ const Cart = () => {
       };
     return (
         <>
-        
+
             <Header totalPrice={calculateTotalPrice()} totalProduct={totalProduct} />
             <div className="content">
                 <div className="container container--cart">

@@ -30,6 +30,8 @@
     font-style: normal
 }
 
+
+
 * {
     padding: 0;
     margin: 0;
@@ -88,6 +90,7 @@ a {
     justify-content: space-between;
     margin-top: 50px;
 }
+
 .categories ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -321,7 +324,3 @@ body {
     margin: 0 auto
 }
 
-@media (max-width: 1300px) {
-    /* Ваши стили здесь */
-  
-  }
