@@ -59,6 +59,7 @@
 
     .cart__bottom-buttons .pay-btn {
         margin-top: 15px;
+        width: 100%;
     }
 }
 
@@ -343,7 +344,7 @@
 .cart__bottom-buttons .pay-btn {
     font-size: 16px;
     font-weight: 600;
-    width: 100%;
+
     padding: 16px
 }
 
