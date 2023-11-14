@@ -9,11 +9,13 @@ const MainContent = ({ sorting, rating }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterItem, setfilterItem] = useState([]);
-  const { addToCart, totalProduct } = useCart([])
+  const { addToCart, totalProduct } = useCart([]);
 
   const onAddProduct = (item) => {
     addToCart(item);
   };
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,17 +60,17 @@ const MainContent = ({ sorting, rating }) => {
               <h4 className="pizza-block__title">{item.title}</h4>
               <div className="pizza-block__selector">
                 <ul>
-                  <li className="active">
+                  <li>
                     {"Традиционное"}
                   </li>
-                  <li>
+                  <li className='active'>
                     {"Тонкое"}
                   </li>
                 </ul>
                 <ul>
                   <li className="active">{item.sizes[0]}</li>
                   <li>{item.sizes[1]}</li>
-                  <li>{item.sizes[2]}</li>
+                  <li className='active'>{item.sizes[2]}</li>
                 </ul>
               </div>
               <div className="pizza-block__bottom">
