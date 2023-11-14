@@ -5,27 +5,27 @@ const Navbar = ({ navBarSort, navBarSortByRating }) => {
     const [popUp, setPopUp] = useState(false);
     const [filter, setFilter] = useState('популярности');
     const [filterBurger, setFilterBurger] = useState(false)
-    
+
     const sorting = (value) => {
         setFilter(value);
         navBarSortByRating(value);
     }
-    
-    
+
+
     const sortByCategory = (value) => {
         navBarSort(value);
     }
-    
-    
-    
+
+
     const toglePopUp = () => {
         setPopUp(!popUp);
     }
     const handleClickFilterBurger = () => {
         setFilterBurger(!filterBurger);
-       
     }
-    
+
+
+
     useEffect(() => {
         const closePopap = (event) => {
             if (popUp && !event.target.closest('.sort')) {
@@ -40,10 +40,12 @@ const Navbar = ({ navBarSort, navBarSortByRating }) => {
         }
     }, [popUp])
 
+
+
     return (
 
         <div className="content__top">
-            <div class="burger-menu" onClick={() => handleClickFilterBurger()}>
+          <div class="burger-menu" onClick={() => handleClickFilterBurger()}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width='24px'>
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>

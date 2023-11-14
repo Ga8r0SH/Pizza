@@ -7,18 +7,11 @@
         display: block !important;
     }
 
-    .content__top{
-        position: relative;
-    }
-
     .categories ul{
         display: block !important;
-        position: absolute;
-        left: 0px;
-        top: 30px;
+        position: relative;
         border:1px solid black;
         background-color:#838282;
-        width: 100%;    
                 
     }
     .categories li{
